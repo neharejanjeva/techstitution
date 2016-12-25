@@ -1,0 +1,47 @@
+<style>
+body{
+  background-color: #6DBDD6;
+}
+#tabela{
+  margin-left:25%;
+  color:black;
+}
+a{
+  color:black;
+  text-decoration: none;
+}
+a:hover{
+  color:gray;
+}
+#h{
+  color:black;
+  text-shadow: 0 1px 0 white;
+}
+#fieldset{
+  width:1000px;
+  margin:auto;
+  border:1px solid black;
+  box-shadow: 5px 5px 10px 5px black;
+}
+</style>
+<br><br><br><br><br>
+<fieldset id="fieldset"> <table style="width:50%" id="tabela">
+<tr>
+<td id="h"><b>Emri i Ndermarresit<b></td>
+<td id="h"><b>Adresa<b></td>
+<td id="h"><b>&nbsp;Opsionet<b></td>
+</tr>
+<tbody>
+{% for item in documentat %}
+<tr>
+<td>{{ item['emri_ndermarresit'] }}</td>
+<td>{{ item['adresa'] }}</td>
+<td>
+<a href="{{url_for('main.get_doc',id=item._id)}}">View&nbsp;</a>
+<a href="{{url_for('main.remove_doc',id=item._id)}}">Delete</a>
+</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+</fieldset>
